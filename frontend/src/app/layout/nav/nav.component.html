@@ -1,0 +1,19 @@
+<p-menubar [model]="navItems">
+  <ng-template pTemplate="end">
+    <div class="flex column-gap-2">
+      <p-dropdown
+        [options]="languages"
+        optionLabel="label"
+        optionValue="value"
+        [(ngModel)]="selectedLanguage"
+        (onChange)="setLang(selectedLanguage)"
+      ></p-dropdown>
+      <button
+        pButton
+        [label]="'NAV.LOGOUT' | translate"
+        icon="pi pi-sign-out"
+        (click)="logout()"
+      ></button>
+    </div>
+  </ng-template>
+</p-menubar>

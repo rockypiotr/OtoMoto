@@ -1,0 +1,29 @@
+{
+  "NAV": {
+    "LOGOUT": "Wyloguj",
+    "ABOUT": "O nas",
+    "AUCTIONS": "Aukcje"
+  },
+  "AUCTIONS": {
+    "ACTIONS": {
+      "ADD-BUTTON": "Dodaj"
+    },
+    "DIALOG": {
+      "HEADER": {
+        "ADD": "Dodaj aukcje",
+        "EDIT": "Edytuj aukcje"
+      },
+      "FORM": {
+        "BRAND": "Marka",
+        "MODEL": "Model",
+        "VIN": "VIN",
+        "PRODUCTION_YEAR": "Rok produkcji",
+        "HORSE_POWER": "Moc w Km",
+        "MILEAGE": "Przebieg w Km",
+        "ENGINE_CAPACITY": "Pojemność silnika w cm3",
+        "ADD": "Dodaj",
+        "SAVE": "Zapisz"
+      }
+    }
+  }
+}

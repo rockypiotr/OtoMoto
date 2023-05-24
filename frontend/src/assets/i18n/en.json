@@ -1,0 +1,29 @@
+{
+  "NAV": {
+    "LOGOUT": "Logout",
+    "ABOUT": "About",
+    "AUCTIONS": "Auctions"
+  },
+  "AUCTIONS": {
+    "ACTIONS": {
+      "ADD-BUTTON": "Add"
+    },
+    "DIALOG": {
+      "HEADER": {
+        "ADD": "Add auction",
+        "EDIT": "Edit auction"
+      },
+      "FORM": {
+        "BRAND": "Brand",
+        "MODEL": "Model",
+        "VIN": "VIN",
+        "PRODUCTION_YEAR": "Production year",
+        "HORSE_POWER": "Horse power",
+        "MILEAGE": "Mileage in km",
+        "ENGINE_CAPACITY": "Engine capacity in cm3",
+        "ADD": "Add",
+        "SAVE": "Save"
+      }
+    }
+  }
+}

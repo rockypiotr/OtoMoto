@@ -1,0 +1,231 @@
+<p-dialog
+  [visible]="visible"
+  (visibleChange)="visibleChange.emit($event)"
+  [modal]="true"
+  [draggable]="false"
+  [header]="
+    isAddingAuction
+      ? ('AUCTIONS.DIALOG.HEADER.ADD' | translate)
+      : ('AUCTIONS.DIALOG.HEADER.EDIT' | translate)
+  "
+>
+  <form (ngSubmit)="onSubmit(auctionForm)" [formGroup]="auctionForm">
+    <div class="flex flex-column">
+      <div class="p-fluid field">
+        <p-dropdown
+          [options]="brands"
+          optionLabel="label"
+          optionValue="value"
+          formControlName="brand"
+          placeholder="Marka"
+          [showClear]="true"
+          [ngClass]="{
+            'ng-invalid ng-dirty':
+              auctionForm.get('brand')?.invalid &&
+              (auctionForm.get('brand')?.dirty ||
+                auctionForm.get('brand')?.touched)
+          }"
+        >
+        </p-dropdown>
+        <div
+          *ngIf="
+            auctionForm.get('brand')?.invalid &&
+            (auctionForm.get('brand')?.dirty ||
+              auctionForm.get('brand')?.touched)
+          "
+        >
+          <small class="p-error block">Pole brand jest wymagane</small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <p-dropdown
+          [options]="model"
+          optionLabel="label"
+          optionValue="value"
+          formControlName="model"
+          placeholder="Model"
+          [showClear]="true"
+          [ngClass]="{
+            'ng-invalid ng-dirty':
+              auctionForm.get('model')?.invalid &&
+              (auctionForm.get('model')?.dirty ||
+                auctionForm.get('model')?.touched)
+          }"
+        >
+        </p-dropdown>
+        <div
+          *ngIf="
+            auctionForm.get('model')?.invalid &&
+            (auctionForm.get('model')?.dirty ||
+              auctionForm.get('model')?.touched)
+          "
+        >
+          <small class="p-error block">Pole marka jest wymagane</small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="text"
+            pInputText
+            formControlName="vin"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                auctionForm.get('vin')?.invalid &&
+                (auctionForm.get('vin')?.dirty ||
+                  auctionForm.get('vin')?.touched)
+            }"
+            [placeholder]="'AUCTIONS.DIALOG.FORM.VIN' | translate"
+          />
+        </span>
+        <div
+          *ngIf="
+            auctionForm.get('vin')?.invalid &&
+            (auctionForm.get('vin')?.dirty || auctionForm.get('vin')?.touched)
+          "
+        >
+          <small
+            class="p-error block"
+            *ngIf="auctionForm.get('vin')?.hasError('required')"
+            >Pole VIN jest wymagane.</small
+          >
+          <small
+            class="p-error block"
+            *ngIf="
+              auctionForm.get('vin')?.hasError('invalidVin') &&
+              !auctionForm.get('vin')?.hasError('required')
+            "
+          >
+            Nieprawidłowy format numeru VIN
+          </small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="number"
+            pInputText
+            formControlName="productionYear"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                auctionForm.get('productionYear')?.invalid &&
+                (auctionForm.get('productionYear')?.dirty ||
+                  auctionForm.get('productionYear')?.touched)
+            }"
+            [placeholder]="'AUCTIONS.DIALOG.FORM.PRODUCTION_YEAR' | translate"
+          />
+        </span>
+        <div
+          *ngIf="
+            auctionForm.get('productionYear')?.invalid &&
+            (auctionForm.get('productionYear')?.dirty ||
+              auctionForm.get('productionYear')?.touched)
+          "
+        >
+          <small class="p-error block">Pole rok produkcji jest wymagane</small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="number"
+            pInputText
+            formControlName="horsePower"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                auctionForm.get('horsePower')?.invalid &&
+                (auctionForm.get('horsePower')?.dirty ||
+                  auctionForm.get('horsePower')?.touched)
+            }"
+            [placeholder]="'AUCTIONS.DIALOG.FORM.HORSE_POWER' | translate"
+          />
+        </span>
+        <div
+          *ngIf="
+            auctionForm.get('horsePower')?.invalid &&
+            (auctionForm.get('horsePower')?.dirty ||
+              auctionForm.get('horsePower')?.touched)
+          "
+        >
+          <small class="p-error block">Pole moc silnika jest wymagane</small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="number"
+            pInputText
+            formControlName="mileage"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                auctionForm.get('mileage')?.invalid &&
+                (auctionForm.get('mileage')?.dirty ||
+                  auctionForm.get('mileage')?.touched)
+            }"
+            [placeholder]="'AUCTIONS.DIALOG.FORM.MILEAGE' | translate"
+          />
+        </span>
+        <div
+          *ngIf="
+            auctionForm.get('mileage')?.invalid &&
+            (auctionForm.get('mileage')?.dirty ||
+              auctionForm.get('mileage')?.touched)
+          "
+        >
+          <small class="p-error block">Pole przebieg jest wymagane</small>
+        </div>
+      </div>
+      <div class="p-fluid field">
+        <span class="p-input-icon-left">
+          <i class="pi pi-user"></i>
+          <input
+            type="number"
+            pInputText
+            formControlName="engineCapacity"
+            [ngClass]="{
+              'ng-invalid ng-dirty':
+                auctionForm.get('engineCapacity')?.invalid &&
+                (auctionForm.get('engineCapacity')?.dirty ||
+                  auctionForm.get('engineCapacity')?.touched)
+            }"
+            [placeholder]="'AUCTIONS.DIALOG.FORM.ENGINE_CAPACITY' | translate"
+          />
+        </span>
+        <div
+          *ngIf="
+            auctionForm.get('engineCapacity')?.invalid &&
+            (auctionForm.get('engineCapacity')?.dirty ||
+              auctionForm.get('engineCapacity')?.touched)
+          "
+        >
+          <small class="p-error block"
+            >Pole pojemność silnika jest wymagane</small
+          >
+        </div>
+      </div>
+      <div class="field">
+        <input
+          type="file"
+          (change)="editImageToAuction($event)"
+          accept="image/*"
+        />
+      </div>
+    </div>
+    <div class="mt-3 p-fluid">
+      <button
+        pButton
+        [label]="
+          isAddingAuction
+            ? ('AUCTIONS.DIALOG.FORM.ADD' | translate)
+            : ('AUCTIONS.DIALOG.FORM.SAVE' | translate)
+        "
+        class="p-button-success p-button-raised"
+        [disabled]="auctionForm.invalid"
+      ></button>
+    </div>
+  </form>
+</p-dialog>

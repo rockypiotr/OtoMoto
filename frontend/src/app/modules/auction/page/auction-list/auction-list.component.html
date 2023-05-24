@@ -1,0 +1,67 @@
+<p-dataView
+  #dv
+  [value]="auctions"
+  [paginator]="true"
+  [rows]="6"
+  [layout]="layout"
+  filterBy="brand"
+  [sortField]="sortField"
+  [sortOrder]="sortOrder"
+>
+  <ng-template pTemplate="header">
+    <div class="flex flex-row">
+      <div class="flex flex-grow-1 column-gap-3">
+        <p-dropdown
+          [options]="sortOptions"
+          [placeholder]="'Sortuj'"
+          (onChange)="onSortChange($event)"
+        ></p-dropdown>
+        <input
+          type="text"
+          pInputText
+          [placeholder]="'Filtruj marki'"
+          (input)="dv.filter($any($event.target).value, 'contains')"
+        />
+      </div>
+      <div class="flex flex-grow-0">
+        <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="listItem" let-auction>
+    <div class="col-12 p-3">
+      <app-auction-item
+        display="list"
+        [data]="auction"
+        (onDeleteAuction)="onDeleteAuction($event)"
+        (onEditAuction)="onEditAuction($event)"
+      ></app-auction-item>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="gridItem" let-auction>
+    <div class="col-4 p-3">
+      <app-auction-item
+        display="grid"
+        [data]="auction"
+        (onDeleteAuction)="onDeleteAuction($event)"
+        (onEditAuction)="onEditAuction($event)"
+      ></app-auction-item>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      [label]="'AUCTIONS.ACTIONS.ADD-BUTTON' | translate"
+      icon="pi pi-plus"
+      (click)="onEditAuction()"
+    ></button>
+  </ng-template>
+</p-dataView>
+
+<app-auction-edit
+  [(visible)]="displayEditAuctionDialog"
+  [auction]="editedAuction"
+  [isAddingAuction]="isAddingAuction"
+  (onEditAuction)="editAuction($event)"
+  (onAddAuction)="addAuction($event)"
+></app-auction-edit>

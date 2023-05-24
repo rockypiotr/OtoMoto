@@ -1,0 +1,85 @@
+<div>
+  <div class="flex flex-row gap-4 p-5" *ngIf="display === 'list'">
+    <div>
+      <img src="assets/img/189000.png" class="max-h-16rem" alt="desc" />
+    </div>
+    <div class="flex flex-column flex-grow-1">
+      <div class="flex-grow-1">
+        <h3>{{ data.brand }} - {{ data.model }} - {{ data.engineCapacity }}</h3>
+      </div>
+      <div class="flex-grow-0">
+        <p>VIN: {{ data.vin }}</p>
+      </div>
+      <div>
+        <p>
+          <i class="pi pi-car"></i> {{ data.productionYear }} -
+          {{ data.mileage }}
+        </p>
+      </div>
+    </div>
+    <div class="flex flex-column row-gap-2 justify-content-center flex-grow-0">
+      <button
+        pButton
+        icon="pi pi-trash"
+        class="p-button-rounded p-button-raised p-button-danger"
+        (click)="deleteAuction(data._id)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-pencil"
+        class="p-button-rounded p-button-raised"
+        (click)="editAuction(data)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-search"
+        class="p-button-rounded p-button-raised p-button-outlined"
+        (click)="previewAuction(data._id)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-print"
+        class="p-button-rounded p-button-raised p-button-outlined"
+        (click)="printAuction(data)"
+      ></button>
+    </div>
+  </div>
+  <div
+    class="flex flex-column col-12 gap-3 p-card p-3"
+    *ngIf="display === 'grid'"
+  >
+    <div class="flex justify-content-center">
+      <img src="assets/img/189000.png" class="max-h-16rem" alt="desc" />
+    </div>
+    <div>
+      <h3 class="text-center">{{ data.brand }} - {{ data.model }}</h3>
+      <p>VIN: {{ data.vin }}</p>
+    </div>
+    <div class="flex flex-row column-gap-3 justify-content-center">
+      <button
+        pButton
+        icon="pi pi-trash"
+        class="p-button-rounded p-button-raised p-button-danger"
+        (click)="deleteAuction(data._id)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-pencil"
+        class="p-button-rounded p-button-raised"
+        (click)="editAuction(data)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-search"
+        class="p-button-rounded p-button-raised p-button-outlined"
+        (click)="previewAuction(data._id)"
+      ></button>
+      <button
+        pButton
+        icon="pi pi-print"
+        class="p-button-rounded p-button-raised p-button-outlined"
+        (click)="printAuction(data)"
+      ></button>
+    </div>
+  </div>
+</div>
