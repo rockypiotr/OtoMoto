@@ -21,24 +21,32 @@
       <button
         pButton
         icon="pi pi-trash"
+        [pTooltip]="'AUCTIONS.ITEM.TRASH' | translate"
+        tooltipPosition="right"
         class="p-button-rounded p-button-raised p-button-danger"
         (click)="deleteAuction(data._id)"
       ></button>
       <button
         pButton
         icon="pi pi-pencil"
+        [pTooltip]="'AUCTIONS.ITEM.EDIT' | translate"
+        tooltipPosition="right"
         class="p-button-rounded p-button-raised"
         (click)="editAuction(data)"
       ></button>
       <button
         pButton
         icon="pi pi-search"
+        [pTooltip]="'AUCTIONS.ITEM.PREVIEW' | translate"
+        tooltipPosition="right"
         class="p-button-rounded p-button-raised p-button-outlined"
         (click)="previewAuction(data._id)"
       ></button>
       <button
         pButton
         icon="pi pi-print"
+        [pTooltip]="'AUCTIONS.ITEM.PRINT' | translate"
+        tooltipPosition="right"
         class="p-button-rounded p-button-raised p-button-outlined"
         (click)="printAuction(data)"
       ></button>
@@ -59,24 +67,32 @@
       <button
         pButton
         icon="pi pi-trash"
+        [pTooltip]="'AUCTIONS.ITEM.TRASH' | translate"
+        tooltipPosition="bottom"
         class="p-button-rounded p-button-raised p-button-danger"
         (click)="deleteAuction(data._id)"
       ></button>
       <button
         pButton
         icon="pi pi-pencil"
+        [pTooltip]="'AUCTIONS.ITEM.EDIT' | translate"
+        tooltipPosition="bottom"
         class="p-button-rounded p-button-raised"
         (click)="editAuction(data)"
       ></button>
       <button
         pButton
         icon="pi pi-search"
+        [pTooltip]="'AUCTIONS.ITEM.PREVIEW' | translate"
+        tooltipPosition="bottom"
         class="p-button-rounded p-button-raised p-button-outlined"
         (click)="previewAuction(data._id)"
       ></button>
       <button
         pButton
         icon="pi pi-print"
+        [pTooltip]="'AUCTIONS.ITEM.PRINT' | translate"
+        tooltipPosition="bottom"
         class="p-button-rounded p-button-raised p-button-outlined"
         (click)="printAuction(data)"
       ></button>

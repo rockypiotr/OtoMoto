@@ -20,6 +20,8 @@ import { AuctionMainDetailsComponent } from './page/auction-preview/auction-main
 import { AuctionMainImageComponent } from './page/auction-preview/auction-main/auction-main-image/auction-main-image.component';
 import { DataViewModule } from 'primeng/dataview';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { MultiSelectModule } from 'primeng/multiselect';
     CardModule,
     DataViewModule,
     MultiSelectModule,
+    InputNumberModule,
+    TooltipModule,
   ],
 })
 export class AuctionModule {}

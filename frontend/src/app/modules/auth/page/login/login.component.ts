@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
   }
 
   onLogin(form: FormGroup) {
-    console.log(form.value);
     this._auth.login(form.value).subscribe({
       next: (res) => {
         sessionStorage.setItem('jwtToken', res.token);

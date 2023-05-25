@@ -5,6 +5,12 @@
     "AUCTIONS": "Aukcje"
   },
   "AUCTIONS": {
+    "ITEM": {
+      "TRASH": "Usuń aukcje",
+      "EDIT": "Edytuj aukcje",
+      "PREVIEW": "Szczegóły aukcji",
+      "PRINT": "Wydrukuj aukcje"
+    },
     "ACTIONS": {
       "ADD-BUTTON": "Dodaj"
     },
