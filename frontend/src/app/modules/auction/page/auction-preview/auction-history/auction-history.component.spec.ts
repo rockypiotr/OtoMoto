@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AuctionHistoryComponent } from './auction-history.component';
+import { CardModule } from 'primeng/card';
 
 describe('AuctionHistoryComponent', () => {
   let component: AuctionHistoryComponent;
@@ -8,9 +9,9 @@ describe('AuctionHistoryComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuctionHistoryComponent ]
-    })
-    .compileComponents();
+      declarations: [AuctionHistoryComponent],
+      imports: [CardModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AuctionHistoryComponent);
     component = fixture.componentInstance;

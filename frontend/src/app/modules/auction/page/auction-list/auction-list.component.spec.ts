@@ -12,6 +12,9 @@ import { Auction } from '../../../../data/schema/auction';
 import { of } from 'rxjs';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
+import { DataViewModule } from 'primeng/dataview';
+import { CardModule } from 'primeng/card';
+import { DropdownModule } from 'primeng/dropdown';
 
 describe('AuctionListComponent', () => {
   let component: AuctionListComponent;
@@ -30,6 +33,9 @@ describe('AuctionListComponent', () => {
         HttpClientTestingModule,
         DialogModule,
         ButtonModule,
+        CardModule,
+        DropdownModule,
+        DataViewModule,
         ReactiveFormsModule,
         TranslateModule.forRoot({
           defaultLanguage: 'pl',
@@ -81,7 +87,7 @@ describe('AuctionListComponent', () => {
 
   it('should remove auction when onDeleteAuction is called with valid auctionId', () => {
     const auctionId = '1';
-    const initialAuctions: Auction[] = [
+    component.auctions = [
       {
         _id: '1',
         brand: 'Brand 1',
@@ -103,7 +109,6 @@ describe('AuctionListComponent', () => {
         productionYear: 2022,
       },
     ];
-    component.auctions = initialAuctions;
 
     component.onDeleteAuction(auctionId);
 
@@ -113,7 +118,7 @@ describe('AuctionListComponent', () => {
 
   it('should not remove auction when onDeleteAuction is called with invalid auctionId', () => {
     const auctionId = '3';
-    const initialAuctions: Auction[] = [
+    component.auctions = [
       {
         _id: '1',
         brand: 'Brand 1',
@@ -135,7 +140,6 @@ describe('AuctionListComponent', () => {
         productionYear: 2022,
       },
     ];
-    component.auctions = initialAuctions;
 
     component.onDeleteAuction(auctionId);
 

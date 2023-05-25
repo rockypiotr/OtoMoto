@@ -10,6 +10,7 @@ import { Auction } from '../../../../../data/schema/auction';
 import { of } from 'rxjs';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
+import { DropdownModule } from 'primeng/dropdown';
 
 describe('AuctionEditComponent', () => {
   let component: AuctionEditComponent;
@@ -23,6 +24,7 @@ describe('AuctionEditComponent', () => {
         HttpClientModule,
         HttpClientTestingModule,
         DialogModule,
+        DropdownModule,
         ButtonModule,
         ReactiveFormsModule,
         TranslateModule.forRoot({

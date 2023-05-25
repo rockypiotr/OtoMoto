@@ -8,9 +8,9 @@ describe('AuctionMainImageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AuctionMainImageComponent ]
-    })
-    .compileComponents();
+      declarations: [AuctionMainImageComponent],
+      imports: [],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AuctionMainImageComponent);
     component = fixture.componentInstance;
