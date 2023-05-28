@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Auction } from '../../../../data/schema/auction';
 import { AuctionService } from '../../../../core/service/auction.service';
 import { SelectItem } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-auction-list',
@@ -24,11 +25,15 @@ export class AuctionListComponent implements OnInit {
   isAddingAuction: boolean = true;
   layout: string = 'list';
   sortOrder: number = 0;
+  sortValue: string = '';
   sortOptions: SelectItem[] = [];
   filterOptions: SelectItem[] = [];
   sortField: string = '';
 
-  constructor(private _auction: AuctionService) {}
+  constructor(
+    private _auction: AuctionService,
+    private _translate: TranslateService
+  ) {}
 
   ngOnInit(): void {
     this._auction.fetch().subscribe({
@@ -84,14 +89,14 @@ export class AuctionListComponent implements OnInit {
   }
 
   onSortChange(event: any) {
-    let value = event.value;
+    let category = event.value;
 
-    if (value.indexOf('!') === 0) {
+    if (category !== null && category.indexOf('!') === 0) {
       this.sortOrder = -1;
-      this.sortField = value.substring(1, value.length);
+      this.sortField = category.substring(1, category.length);
     } else {
       this.sortOrder = 1;
-      this.sortField = value;
+      this.sortField = category;
     }
   }
 }

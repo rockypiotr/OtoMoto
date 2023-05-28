@@ -22,6 +22,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TooltipModule } from 'primeng/tooltip';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { TooltipModule } from 'primeng/tooltip';
     MultiSelectModule,
     InputNumberModule,
     TooltipModule,
+    RippleModule,
   ],
 })
 export class AuctionModule {}
