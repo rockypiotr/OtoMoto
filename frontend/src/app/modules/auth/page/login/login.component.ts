@@ -34,8 +34,8 @@ export class LoginComponent implements OnInit {
 
   onLogin(form: FormGroup) {
     this._auth.login(form.value).subscribe({
-      next: (res) => {
-        sessionStorage.setItem('jwtToken', res.token);
+      next: (token) => {
+        sessionStorage.setItem('jwtToken', token);
         this._router.navigate(['about']);
       },
       error: (err) => {

@@ -8,17 +8,29 @@ const router = Router();
 router.post(
   "/login",
   asyncHandler(async (req, res) => {
-    const { username, password } = req.body;
-    const account = await AccountModel.findOne({ username: username });
+    try {
+      const { username, password } = req.body;
+      const account = await AccountModel.findOne({ username: username });
 
-    if (!account || account.password !== password) {
-      res.status(401).json("Invalid username or password");
+      if (!account || account.password !== password) {
+        res.status(401).json("Invalid username or password");
+        return;
+      }
+
+      const token = jwt.sign(
+        { token: account._id },
+        process.env.JWT_SECRET || "",
+        {
+          expiresIn: "10h",
+        }
+      );
+
+      res.status(200).json(token);
+      return;
+    } catch (error) {
+      res.status(500).send(error);
+      return;
     }
-
-    const token = jwt.sign({ token: account!._id }, "2zmpDOsuTErTXAp", {
-      expiresIn: "10m",
-    });
-    res.json({ token: token });
   })
 );
 

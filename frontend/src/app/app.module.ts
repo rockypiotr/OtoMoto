@@ -23,6 +23,7 @@ import { SidebarModule } from 'primeng/sidebar';
 import { NgOptimizedImage } from '@angular/common';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { RatingModule } from 'primeng/rating';
+import { AuthInterceptorProvider } from './core/guard/auth.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -63,7 +64,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SelectButtonModule,
     RatingModule,
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
