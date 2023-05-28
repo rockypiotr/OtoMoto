@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem, SelectItem } from 'primeng/api';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Router } from '@angular/router';
+import { ThemeService } from '../../shared/service/theme.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,20 +11,25 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   navItems!: MenuItem[];
+  displaySettings: boolean = false;
   languages: SelectItem[] = [
     { label: 'Polski', value: 'pl' },
     { label: 'English', value: 'en' },
   ];
-  selectedLanguage: string = 'pl';
+  selectedLanguage: string = this._translate.defaultLang;
+  fontOptions: number = 0;
 
-  constructor(private _translate: TranslateService, private _router: Router) {}
+  constructor(
+    private _translate: TranslateService,
+    private _router: Router,
+    private _theme: ThemeService
+  ) {}
 
   ngOnInit(): void {
     this.navItems = this.buildUserProfileMenu();
     this._translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.navItems = this.buildUserProfileMenu();
     });
-    this._translate.use('pl');
   }
 
   buildUserProfileMenu(): MenuItem[] {
@@ -48,5 +54,9 @@ export class NavComponent implements OnInit {
   logout(): void {
     sessionStorage.removeItem('jwtToken');
     this._router.navigate(['/auth/login']);
+  }
+
+  onDisplaySettings(): void {
+    this.displaySettings = true;
   }
 }

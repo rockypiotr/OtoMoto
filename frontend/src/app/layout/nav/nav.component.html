@@ -1,6 +1,12 @@
 <p-menubar [model]="navItems">
   <ng-template pTemplate="end">
     <div class="flex column-gap-2">
+      <button
+        pButton
+        pRipple
+        icon="pi pi-cog"
+        (click)="onDisplaySettings()"
+      ></button>
       <p-dropdown
         [options]="languages"
         optionLabel="label"
@@ -10,10 +16,12 @@
       ></p-dropdown>
       <button
         pButton
+        pRipple
         [label]="'NAV.LOGOUT' | translate"
         icon="pi pi-sign-out"
         (click)="logout()"
       ></button>
     </div>
+    <app-ui-settings [(visible)]="displaySettings"></app-ui-settings>
   </ng-template>
 </p-menubar>

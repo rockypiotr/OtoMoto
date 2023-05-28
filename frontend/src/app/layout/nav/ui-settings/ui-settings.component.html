@@ -1,0 +1,63 @@
+<p-sidebar
+  [visible]="visible"
+  (visibleChange)="visibleChange.emit($event)"
+  position="right"
+  styleClass="p-sidebar-sm"
+>
+  <ng-template pTemplate="content">
+    <form
+      class="flex flex-column row-gap-3"
+      [formGroup]="uiForm"
+      (ngSubmit)="saveSettings(uiForm)"
+    >
+      <h3>Motywy</h3>
+      <div class="flex flex-column">
+        <div *ngFor="let theme of themeOptions" class="field-radiobutton">
+          <p-radioButton
+            formControlName="theme"
+            [inputId]="theme.value"
+            [value]="theme.value"
+            (onClick)="setTheme(theme.value)"
+          ></p-radioButton>
+          <label [for]="theme.value">{{ theme.label }}</label>
+        </div>
+      </div>
+      <h3>Tryb nocny</h3>
+      <div>
+        <p-inputSwitch
+          (click)="switchNightMode()"
+          formControlName="nightMode"
+        ></p-inputSwitch>
+      </div>
+      <h3>Component Scale</h3>
+      <div class="flex align-items-center column-gap-2">
+        <button
+          pButton
+          type="button"
+          icon="pi pi-minus"
+          class="p-button-sm p-button-text p-button-rounded"
+          (click)="decrementFontSize()"
+        ></button>
+        <p-rating [cancel]="false" formControlName="scale">
+          <ng-template pTemplate="onicon">
+            <i class="pi pi-circle-fill text-primary-400"></i>
+          </ng-template>
+          <ng-template pTemplate="officon">
+            <i class="pi pi-circle-off"></i>
+          </ng-template>
+        </p-rating>
+        <button
+          pButton
+          type="button"
+          icon="pi pi-plus"
+          class="p-button-sm p-button-text p-button-rounded"
+          (click)="incrementFontSize()"
+        ></button>
+      </div>
+      <div>
+        <button pButton pRipple label="Zapisz" type="submit"></button>
+      </div>
+    </form>
+  </ng-template>
+  <ng-template pTemplate="footer"></ng-template>
+</p-sidebar>

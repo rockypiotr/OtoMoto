@@ -4,6 +4,7 @@ import cors from "cors";
 import authRouter from "./router/auth.router";
 import { dbConnect } from "./config/database.config";
 import auctionRouter from "./router/auction.router";
+import uiSettingsRouter from "./router/uiSettings.router";
 
 require("dotenv").config();
 dbConnect();
@@ -22,6 +23,7 @@ app.use(
 app.use(express.json());
 app.use("/api/auth", authRouter);
 app.use("/api/auction", auctionRouter);
+app.use("/api/uisettings", uiSettingsRouter);
 
 app.listen(port, () => {
   console.log("Website served on ", port, new Date());
