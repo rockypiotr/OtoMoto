@@ -39,12 +39,22 @@
             ],
             "styles": [
               {
-                "input": "src/styles/themes/theme-lara-dark.scss",
+                "input": "src/styles/themes/bootstrap-dark.scss",
+                "bundleName": "bootstrap-dark",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/bootstrap-light.scss",
+                "bundleName": "bootstrap-light",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/lara-dark.scss",
                 "bundleName": "lara-dark",
                 "inject": false
               },
               {
-                "input": "src/styles/themes/theme-lara-light.scss",
+                "input": "src/styles/themes/lara-light.scss",
                 "bundleName": "lara-light",
                 "inject": false
               },
