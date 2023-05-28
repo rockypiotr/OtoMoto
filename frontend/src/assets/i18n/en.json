@@ -5,6 +5,11 @@
     "AUCTIONS": "Auctions"
   },
   "AUCTIONS": {
+    "SEARCH": {
+      "SORT": "Sort brands",
+      "FILTER": "Filter brands",
+      "EMPTY": "Upsss, it looks like our magical car dealer played a trick on us and hid all the copies."
+    },
     "ITEM": {
       "TRASH": "Delete auction",
       "EDIT": "Edit auction",

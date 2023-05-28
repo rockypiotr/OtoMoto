@@ -2,9 +2,15 @@
   "NAV": {
     "LOGOUT": "Wyloguj",
     "ABOUT": "O nas",
-    "AUCTIONS": "Aukcje"
+    "AUCTIONS": "Aukcje",
+    "SETTINGS": "U"
   },
   "AUCTIONS": {
+    "SEARCH": {
+      "SORT": "Sortuj marki",
+      "FILTER": "Filtruj marki",
+      "EMPTY": "Upsss, wygląda na to, że nasz magiczny dystrybutor samochodów zrobił nam figla i ukrył wszystkie egzemplarze."
+    },
     "ITEM": {
       "TRASH": "Usuń aukcje",
       "EDIT": "Edytuj aukcje",
