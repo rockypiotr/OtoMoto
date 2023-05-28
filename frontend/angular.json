@@ -20,6 +20,14 @@
             "outputPath": "dist/dream-cars",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "allowedCommonJsDependencies": [
+              "dompurify",
+              "html2canvas",
+              "rgbcolor",
+              "raf",
+              "jspdf",
+              "core-js"
+            ],
             "polyfills": [
               "zone.js"
             ],
@@ -30,11 +38,30 @@
               "src/assets"
             ],
             "styles": [
+              {
+                "input": "src/styles/themes/theme-lara-dark.scss",
+                "bundleName": "lara-dark",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/theme-lara-light.scss",
+                "bundleName": "lara-light",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/soho-dark.scss",
+                "bundleName": "soho-dark",
+                "inject": false
+              },
+              {
+                "input": "src/styles/themes/soho-light.scss",
+                "bundleName": "soho-light",
+                "inject": false
+              },
+              "src/styles.scss",
               "node_modules/primeflex/primeflex.css",
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
-              "node_modules/primeng/resources/primeng.min.css",
-              "src/styles.scss"
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
